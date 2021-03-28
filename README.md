@@ -1,22 +1,10 @@
-<!--
-#
-# Licensed to the Apache Software Foundation (ASF) under one or more
-# contributor license agreements.  See the NOTICE file distributed with
-# this work for additional information regarding copyright ownership.
-# The ASF licenses this file to You under the Apache License, Version 2.0
-# (the "License"); you may not use this file except in compliance with
-# the License.  You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
--->
+# OpenWhisk Docker Skeleton - Debian Slim based
 
+This repository serves as a base for https://hub.docker.com/repository/docker/davidfrickert/dockerskeleton-slim, an alternative to openwhisk's docker skeleton image.
+This image is based on debian-slim instead of alpine. Useful for applications that depend on glibc and cannot run on alpine due to it using musl instead of glibc.
+
+
+## https://github.com/apache/openwhisk-runtime-docker/tree/master/core/actionProxy
 ## Skeleton for "docker actions"
 
 The `dockerskeleton` base image is useful for actions that run scripts (e.g., bash, perl, python) and compiled binaries or, more generally, any native executable. It provides a proxy service (using Flask, a Python web microframework) that implements the required `/init` and `/run` routes to interact with the OpenWhisk invoker service. The implementation of these routes is encapsulated in a class named `ActionRunner` which provides a basic framework for receiving code from an invoker, preparing it for execution, and then running the code when required.
